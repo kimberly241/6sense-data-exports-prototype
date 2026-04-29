@@ -1435,7 +1435,7 @@ function AppChrome({ section = 'Data Exports', subnav, children, topRight }) {
     { label: 'Settings',     icon: <Icons.Settings size={18} /> },
   ];
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '224px 1fr', height: '100%', background: '#F7F8FA', fontFamily: 'var(--font-body)' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '224px 1fr', minHeight: '100%', background: '#F7F8FA', fontFamily: 'var(--font-body)' }}>
       {/* Sidebar */}
       <aside style={{ background: '#192232', color: '#fff', padding: '18px 14px', display: 'flex', flexDirection: 'column', gap: 20 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '0 6px 14px', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
@@ -1473,7 +1473,7 @@ function AppChrome({ section = 'Data Exports', subnav, children, topRight }) {
         </div>
       </aside>
       {/* Main */}
-      <main style={{ display: 'flex', flexDirection: 'column', minWidth: 0, overflow: 'hidden' }}>
+      <main style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
         <header style={{ height: 56, borderBottom: '1px solid #E6E8EC', background: '#fff', padding: '0 24px', display: 'flex', alignItems: 'center', gap: 16, flexShrink: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#8A9BAE' }}>
             <span>Admin</span>
@@ -1484,7 +1484,7 @@ function AppChrome({ section = 'Data Exports', subnav, children, topRight }) {
           {topRight}
         </header>
         {subnav}
-        <div style={{ flex: 1, overflow: 'auto', padding: 24 }}>
+        <div style={{ padding: 24 }}>
           {children}
         </div>
       </main>
@@ -2668,20 +2668,20 @@ function MonitoringStandalone() {
 }
 
 function App() {
-  const W = 1280, H = 820;
+  const W = 1280;
   return (
     <DesignCanvas>
       <DCSection id="config" title="New reporting capability" subtitle="Configure an export from 6sense into a customer's CDW or object storage — two flow variations">
-        <DCArtboard id="wizard" label="A · Guided wizard (step-by-step)" width={W} height={H}>
-          <div style={{ width: W, height: H, overflow: 'auto' }}><WizardApp /></div>
+        <DCArtboard id="wizard" label="A · Guided wizard (step-by-step)" width={W} height={1200}>
+          <div style={{ width: W, height: 1200 }}><WizardApp /></div>
         </DCArtboard>
-        <DCArtboard id="single" label="B · Single-page config (power-user)" width={W} height={H}>
-          <div style={{ width: W, height: H, overflow: 'auto' }}><SinglePageApp /></div>
+        <DCArtboard id="single" label="B · Single-page config (power-user)" width={W} height={1700}>
+          <div style={{ width: W, height: 1700 }}><SinglePageApp /></div>
         </DCArtboard>
       </DCSection>
       <DCSection id="monitor" title="Monitoring dashboard" subtitle="Once an export is live — sync health, run history, and troubleshooting">
-        <DCArtboard id="monitor" label="Sync health & run history" width={W} height={H}>
-          <div style={{ width: W, height: H, overflow: 'auto' }}><MonitoringStandalone /></div>
+        <DCArtboard id="monitor" label="Sync health & run history" width={W} height={1100}>
+          <div style={{ width: W, height: 1100 }}><MonitoringStandalone /></div>
         </DCArtboard>
       </DCSection>
     </DesignCanvas>

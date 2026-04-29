@@ -1600,7 +1600,7 @@ function WizardApp() {
     authMethod: 'keypair',
     user: 'SIXSENSE_SVC',
   });
-  const [testing, setTesting] = useStateW(null); // null | 'running' | 'ok' | 'fail'
+  const [testing, setTesting] = useStateW('ok'); // pre-verified for prototype flow
   const [selected, setSelected] = useStateW({ accounts: true, contacts: true, intent: true, engagement: false, campaigns: false });
   const [schedule, setSchedule] = useStateW({ cadence: 'daily', hour: '03:00', mode: 'incremental' });
   const [perms, setPerms] = useStateW({ roles: ['Admin'], piiHash: true, rowMask: false });
@@ -2672,8 +2672,8 @@ function App() {
   return (
     <DesignCanvas>
       <DCSection id="config" title="New reporting capability" subtitle="Configure an export from 6sense into a customer's CDW or object storage — two flow variations">
-        <DCArtboard id="wizard" label="A · Guided wizard (step-by-step)" width={W} height={1200}>
-          <div style={{ width: W, height: 1200 }}><WizardApp /></div>
+        <DCArtboard id="wizard" label="A · Guided wizard (step-by-step)" width={W} height={1400}>
+          <div style={{ width: W, height: 1400 }}><WizardApp /></div>
         </DCArtboard>
         <DCArtboard id="single" label="B · Single-page config (power-user)" width={W} height={1700}>
           <div style={{ width: W, height: 1700 }}><SinglePageApp /></div>
